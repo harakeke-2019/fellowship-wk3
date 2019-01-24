@@ -1,8 +1,8 @@
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('phase_activities', (table) => {
+  return knex.schema.createTable('phases_activities', (table) => {
     table.increments('id').primary()
-    table.integer('phases_id').references('phases.id')
-    table.integer('activities_id').references('activities.id')
+    table.integer('phase_id').references('phases.id')
+    table.integer('activity_id').references('activities.id')
   })
 };
 
