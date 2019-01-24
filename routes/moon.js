@@ -18,18 +18,19 @@ router.get('/', (req, res) => {
 
 router.get('/phase/:id', (req, res) =>{
   const id = req.params.id
-  db.getPhase(phase)
+  db.getMoonPhase(id)
   .then(formatData)
   .then(phase =>{
-    res.render('phase'. phase)
+    res.render('phase', phase)
   })
 
    function formatData (phase) {
     const data = {
-      name: phase[0].name,
+      phaseId: phase[0].phaseId,
+      name: phase[0].phaseName,
       image: phase[0].image,
       nextDate: phase[0].nextDate,
-      activities: phase.map(el => el.title)
+      activities: phase.map(el => el.activity)
 }
  return data
    }})
