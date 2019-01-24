@@ -19,7 +19,17 @@ router.get('/', (req, res) => {
 router.get('/phase/:id', (req, res) =>{
   const id = req.params.id
   db.getPhase(phase)
+  .then(formatData)
   .then(phase =>{
-    res.render('phase'. phase[0])
+    res.render('phase'. phase)
   })
-})
+
+   function formatData (phase) {
+    const data = {
+      name: phase[0].name,
+      image: phase[0].image,
+      nextDate: phase[0].nextDate,
+      activities: phase.map(el => el.title)
+}
+ return data
+   }})
