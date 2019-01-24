@@ -4,12 +4,12 @@
     <title>Moon Phase</title>
   </head>
   <body>
-     <img src= 'images/{{image}}'>
+     <img src= '../images/{{image}}'><br>
     {{name}}
     {{next_date}}
     <ul>
     {{#each activities}}
-    <li>{{title}}</li>
+    <li>{{this}}</li>
     {{/each}}
     <h3><a href="javascript:history.back()">Go to moon phase home</a></h3>
   </body>
