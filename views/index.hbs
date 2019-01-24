@@ -5,11 +5,11 @@
   </head>
   <body>
   <h1>Moon Phases</h1>
-  {{#each phase}}
-  <a href = {{url}}>
-  {{image}}
-  {{title}}
-  </a>
+  {{#each phases}}
+  <a href = '/phase/{{id}}'></a>
+  <img src= 'images/{{image}}'>
+  <h2><a href = '/phase/{{id}}'>{{name}}</a></h2>
+
   {{/each}}
 
   </body>
