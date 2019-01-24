@@ -34,3 +34,22 @@ router.get('/phase/:id', (req, res) =>{
 }
  return data
    }})
+
+router.get('/addAct', (req, res) =>{
+  res.render('add-activity')
+  
+})
+
+router.post('/addAct' , (req, res) => {
+  db.addActivity(req.body.title)
+  .then(res.redirect('/'))
+  .catch(err => {
+    res.status(500).send(err.message)
+  })
+}
+
+
+
+
+// Micah's try
+// router.post('/phase')
