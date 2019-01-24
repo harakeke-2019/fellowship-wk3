@@ -1,9 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Moon Phase Thing</title>
+    <title>Moon Phase</title>
   </head>
   <body>
-  
+    {{#each phase}}
+    {{title}}
+    {{image}}
+    {{next date}}
+    {{activity}}
+    {{/each}}
+    <h3><a href="javascript:history.back()">Back to Previous Page</a></h3>
   </body>
 </html>
