@@ -3,10 +3,11 @@
   <head>
     <title>Moon Phase</title>
   </head>
-  <body>
+  <body style="background-color:black">
      <img src= 'images/{{image}}'>
-    {{name}}
-    {{next_date}}
+    <h2>{{name}}</h2>
+    <h3>Next date: {{next_date}}</h3>
+    <h3>Activities</h3>
     <ul>
     {{#each activities}}
     <li>{{title}}</li>
