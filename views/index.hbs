@@ -4,13 +4,13 @@
     <title>Moon Phase Thing</title>
   </head>
   <body>
-  <h1>Moon Phases</h1>
-  {{#each phases}}
-  <a href = '/phase/{{id}}'>
-  <img src= 'images/{{image}}'></a>
-  <h2><a href = '/phase/{{id}}'>{{name}}</a></h2>
+    <h1>Moon Phases</h1>
+    {{#each phases}}
+      <a href = '/phase/{{id}}'>
+      <img src= 'images/{{image}}'></a>
+      <h2><a href = '/phase/{{id}}'>{{name}}</a></h2>
 
-  {{/each}}
-
+    {{/each}}
+    <button onclick="/addActivity">Add activity</button>
   </body>
 </html>
