@@ -8,48 +8,63 @@ module.exports = router
 
 router.get('/', (req, res) => {
   db.getPhases()
-  .then(phases => {
-    res.render('index', {phases: phases})
-  }) 
-  .catch(err=>{
-    res.status(500).send(err.message)
-  })
+    .then(phases => {
+      res.render('index', {phases: phases})
+    })
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
 })
 
-router.get('/phase/:id', (req, res) =>{
+router.get('/phase/:id', (req, res) => {
   const id = req.params.id
   db.getMoonPhase(id)
-  .then(formatData)
-  .then(phase =>{
-    res.render('phase', phase)
-  })
+    .then(formatData)
+    .then(phase => {
+      res.render('phase', phase)
+    })
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
 
-   function formatData (phase) {
+  function formatData (phase) {
     const data = {
       phaseId: phase[0].phaseId,
       name: phase[0].phaseName,
       image: phase[0].image,
       nextDate: phase[0].nextDate,
       activities: phase.map(el => el.activity)
-}
- return data
-   }})
-
-router.get('/addAct', (req, res) =>{
-  res.render('add-activity')
-  
+    }
+    return data
+  }
 })
 
-router.post('/addAct' , (req, res) => {
+router.get('/addAct', (req, res) => {
+  res.render('add-activity')
+})
+
+router.post('/addAct', (req, res) => {
   db.addActivity(req.body.title)
-  .then(res.redirect('/'))
-  .catch(err => {
+    .then(res.redirect('/'))
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
+})
+
+router.get('/addphaseact/:id', (req, res) => {
+  const id = req.params.id
+  res.render('add-phase-activity', {id: id})
+})
+
+router.post('/addPhaseActivity/:id', (req, res) => {
+  db.addPhaseActivity(req.params.id, req.body.title, err => {
     res.status(500).send(err.message)
   })
+    .then(res.redirect('/phase/:id'))
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
 })
-
-
-
 
 // Micah's try
 // router.post('/phase')
