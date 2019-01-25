@@ -1,0 +1,17 @@
+body {
+  background-color: lightblue;
+  text-align: center
+}
+h1 {
+  font-family: 'Lobster;, cursive';
+}
+h2{
+  font-family: 'Crete Round', serif;
+}
+
+.images {
+  width:"800px";
+  height:"800px";
+
+}
+
