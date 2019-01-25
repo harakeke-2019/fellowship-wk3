@@ -23,6 +23,9 @@ router.get('/phase/:id', (req, res) => {
     .then(phase => {
       res.render('phase', phase)
     })
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
 
   function formatData (phase) {
     const data = {
@@ -34,7 +37,7 @@ router.get('/phase/:id', (req, res) => {
     }
     return data
   }
- })
+})
 
 router.get('/addAct', (req, res) => {
   res.render('add-activity')
@@ -43,6 +46,21 @@ router.get('/addAct', (req, res) => {
 router.post('/addAct', (req, res) => {
   db.addActivity(req.body.title)
     .then(res.redirect('/'))
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
+})
+
+router.get('/addphaseact/:id', (req, res) => {
+  const id = req.params.id
+  res.render('add-phase-activity', {id: id})
+})
+
+router.post('/addPhaseActivity/:id', (req, res) => {
+  db.addPhaseActivity(req.params.id, req.body.title, err => {
+    res.status(500).send(err.message)
+  })
+    .then(res.redirect('/phase/:id'))
     .catch(err => {
       res.status(500).send(err.message)
     })
