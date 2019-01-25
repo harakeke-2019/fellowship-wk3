@@ -44,3 +44,39 @@ test('getMoonPhase returns correct activities', () => {
     })
     .catch(err => expect(err).toBeNull())
 })
+
+test('addActivity adds activity to table correctly', () => {
+  const expectedNewId = 9
+  const title = 'Shopping'
+  return db.addActivity(title, testDb)
+    .then((data) => {
+      const actualNewId = data[0]
+      expect(actualNewId).toBe(expectedNewId)
+    })
+    .catch(err => expect(err).toBeNull())
+})
+
+test.skip('addPhaseActivity adds new row to phases_activities', () => {
+  const expectedNewId = 17
+  const phaseId = 5
+  const title = 'Coding'
+
+  // testDb('phases_activities')
+  //       .select()
+  //       .then(console.log)
+  //       .catch(err => expect(err).toBeNull())
+
+
+  return db.addPhaseActivity(phaseId, title, console.log, testDb)
+    .then(
+      console.log('stuff')
+      testDb('phases_activities')
+        .select('*')
+        .then((stuff) => console.log('helpppppppp'))
+        .catch(err => expect(err).toBeNull())
+      // const actualNewId = data[0]
+      // expect(actualNewId).toBe(expectedNewId))
+    .catch(err => {
+      console.log('errrrrrrrrrrrrror')
+      expect(err).toBeNull()
+    }))})

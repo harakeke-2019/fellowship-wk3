@@ -28,12 +28,13 @@ router.get('/phase/:id', (req, res) => {
     })
 
   function formatData (phase) {
+    console.log(phase)
     const data = {
       id: phase[0].phaseId,
       name: phase[0].phaseName,
       image: phase[0].image,
       nextDate: phase[0].nextDate,
-      activities: phase.map(el => el.activity)
+      activities: phase.map(el => ({title: el.activity, activityId: el.activitiesId}))
     }
     return data
   }
@@ -66,5 +67,10 @@ router.post('/addPhaseActivity/:id', (req, res) => {
     })
 })
 
-// Micah's try
-// router.post('/phase')
+router.get('/deletePhaseActivity/:phaseId/:activityId', (req, res) => {
+  db.deletePhaseActivity(req.params.phaseId, req.params.activityId)
+    .then(res.redirect('/phase/' + req.params.phaseId))
+    .catch(err => {
+      res.status(500).send(err.message)
+    })
+})

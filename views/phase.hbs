@@ -15,9 +15,9 @@
     {{next_date}}
     <ul>
     {{#each activities}}
-    
-    
-    <h2><li>{{this}}</li></h2>
+    <li>{{title}}
+      <button onclick="location.href = '/deletePhaseActivity/{{../id}}/{{activityId}}';">Delete</button>
+    </li> 
     {{/each}}
    </ul> 
    </div>
