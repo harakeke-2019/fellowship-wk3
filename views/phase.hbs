@@ -2,19 +2,26 @@
 <html>
   <head>
     <title>Moon Phase</title>
-    {{> header}}
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round|Lobster" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
+
   </head>
   <body>
-     <img src= '../images/{{image}}'><br>
-    {{name}}
+    <h1>{{name}}</h1>
+    <div class="images">
+     <img class="images" src= '../images/{{image}}'><br>
+   
     {{next_date}}
     <ul>
     {{#each activities}}
-    <li>{{title}}
-      <button onclick="location.href = '/deletePhaseActivity/{{../id}}/{{activityId}}';">Delete</button>
+    <li><p2>{{title}}</p2>
+      <button id="delBtn" onclick="location.href = '/deletePhaseActivity/{{../id}}/{{activityId}}';">Delete</button>
     </li> 
     {{/each}}
-    <button onclick="location.href = '/addPhaseActivity/{{id}}';">Add activity to moon phase.</button>
-    <h3><a href="javascript:history.back()">Go to moon phase home</a></h3>
+   </ul> 
+   </div>
+    <button id="btn" onclick="location.href = '/addPhaseActivity/{{id}}';">Add activity to moon phase.</button>
+    <h3><a href="javascript:history.back()">Go Back</a></h3>
   </body>
 </html>
