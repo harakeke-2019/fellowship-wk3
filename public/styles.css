@@ -19,7 +19,7 @@ h2{
   margin-right: auto;
 }
 
-#btn {
+.btn {
   background-color: blue;
   border: none;
   color: white;
