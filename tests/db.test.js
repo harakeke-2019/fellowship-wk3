@@ -79,5 +79,4 @@ test.skip('addPhaseActivity adds new row to phases_activities', () => {
     .catch(err => {
       console.log('errrrrrrrrrrrrror')
       expect(err).toBeNull()
-    })
-})
+    }))})
