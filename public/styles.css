@@ -31,3 +31,16 @@ h2{
   margin: 4px 2px;
   cursor: pointer;
 }
+
+#delBtn {
+  background-color:#4169E1;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
