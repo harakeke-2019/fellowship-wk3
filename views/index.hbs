@@ -2,15 +2,19 @@
 <html>
   <head>
     <title>Moon Phase Thing</title>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Crete+Round|Lobster" rel="stylesheet"> 
+     
+    <<link rel="stylesheet" type="text/css" href="../styles.css" media="screen" />
   </head>
   <body>
     <h1>Moon Phases</h1>
     {{#each phases}}
       <a href = '/phase/{{id}}'>
-      <img src= 'images/{{image}}'></a>
+      <img class="images" src= 'images/{{image}}'></a>
       <h2><a href = '/phase/{{id}}'>{{name}}</a></h2>
 
     {{/each}}
-    <button onclick="/addActivity">Add activity</button>
+    <button onclick="location.href = '/addAct';">Add activity</button>
   </body>
 </html>
