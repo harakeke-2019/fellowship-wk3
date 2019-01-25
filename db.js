@@ -30,9 +30,12 @@ function addPhaseActivity (phaseId, title, errorFunction, db = connection) {
     })
 }
 
-// function deletePhaseActivity (delPhaseId, delActId, db = connection)
-// return db ()
-
+function deletePhaseActivity (delPhaseId, delActId, db = connection) {
+  return db('phases_activities')
+    .where('phase_id', delPhaseId)
+    .where('activity_id', delActId)
+    .del()
+}
 module.exports = {
   getPhases,
   getMoonPhase,

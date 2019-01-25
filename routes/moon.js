@@ -28,7 +28,6 @@ router.get('/phase/:id', (req, res) => {
     })
 
   function formatData (phase) {
-    console.log(phase)
     const data = {
       id: phase[0].phaseId,
       name: phase[0].phaseName,
