@@ -66,10 +66,9 @@ router.post('/addPhaseActivity/:id', (req, res) => {
     })
 })
 
-
 router.get('/deletePhaseActivity/:phaseId/:activityId', (req, res) => {
   db.deletePhaseActivity(req.params.phaseId, req.params.activityId)
-  .then(res.redirect('/phase/' + req.params.phaseId))
+    .then(res.redirect('/phase/' + req.params.phaseId))
     .catch(err => {
       res.status(500).send(err.message)
     })
