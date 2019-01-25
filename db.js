@@ -16,7 +16,7 @@ function getMoonPhase (phaseId, db = connection) {
 
 function addActivity (title, db = connection) {
   return db('activities')
-    .insert({title: title})
+  .insert({title: title})
 }
 
 function addPhaseActivity (phaseId, title, errorFunction, db = connection) {
