@@ -11,7 +11,7 @@ function getMoonPhase (phaseId, db = connection) {
     .join('phases', 'phase_id', '=', 'phases.id')
     .join('activities', 'activity_id', '=', 'activities.id')
     .where('phases.id', phaseId)
-    .select('phases.name as phaseName', 'phases.next_date as nextDate', 'image', 'activities.title as activity', 'activities.id as activitiesId' 'phases.id as phaseId')
+    .select('phases.name as phaseName', 'phases.next_date as nextDate', 'image', 'activities.title as activity', 'activities.id as activitiesId', 'phases.id as phaseId')
 }
 
 function addActivity (title, db = connection) {
@@ -30,9 +30,13 @@ function addPhaseActivity (phaseId, title, errorFunction, db = connection) {
     })
 }
 
+// function deletePhaseActivity (delPhaseId, delActId, db = connection)
+// return db ()
+
 module.exports = {
   getPhases,
   getMoonPhase,
   addActivity,
-  addPhaseActivity
+  addPhaseActivity,
+  deletePhaseActivity
 }
