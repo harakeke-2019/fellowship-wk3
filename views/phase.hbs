@@ -10,7 +10,9 @@
     {{next_date}}
     <ul>
     {{#each activities}}
-    <li>{{this}}</li>
+    <li>{{title}}
+      <button onclick="location.href = '/deletePhaseActivity/{{../id}}/{{activityId}}';">Delete</button>
+    </li> 
     {{/each}}
     <button onclick="location.href = '/addPhaseActivity/{{id}}';">Add activity to moon phase.</button>
     <h3><a href="javascript:history.back()">Go to moon phase home</a></h3>
