@@ -29,7 +29,7 @@ router.get('/phase/:id', (req, res) => {
 
   function formatData (phase) {
     const data = {
-      phaseId: phase[0].phaseId,
+      id: phase[0].phaseId,
       name: phase[0].phaseName,
       image: phase[0].image,
       nextDate: phase[0].nextDate,
@@ -51,7 +51,7 @@ router.post('/addAct', (req, res) => {
     })
 })
 
-router.get('/addphaseact/:id', (req, res) => {
+router.get('/addPhaseActivity/:id', (req, res) => {
   const id = req.params.id
   res.render('add-phase-activity', {id: id})
 })
@@ -60,7 +60,7 @@ router.post('/addPhaseActivity/:id', (req, res) => {
   db.addPhaseActivity(req.params.id, req.body.title, err => {
     res.status(500).send(err.message)
   })
-    .then(res.redirect('/phase/:id'))
+    .then(res.redirect('/phase/' + req.params.id))
     .catch(err => {
       res.status(500).send(err.message)
     })
