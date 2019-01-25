@@ -61,22 +61,16 @@ test.skip('addPhaseActivity adds new row to phases_activities', () => {
   const phaseId = 5
   const title = 'Coding'
 
-  // testDb('phases_activities')
-  //       .select()
-  //       .then(console.log)
-  //       .catch(err => expect(err).toBeNull())
-
-
   return db.addPhaseActivity(phaseId, title, console.log, testDb)
-    .then(
-      console.log('stuff')
-      testDb('phases_activities')
-        .select('*')
-        .then((stuff) => console.log('helpppppppp'))
+    .then(() => {
+       testDb('phases_activities')
+        .select('id')
+        .then((data) => {
+          expect(true).toBe(false)
+        })
         .catch(err => expect(err).toBeNull())
-      // const actualNewId = data[0]
-      // expect(actualNewId).toBe(expectedNewId))
+    })
     .catch(err => {
-      console.log('errrrrrrrrrrrrror')
       expect(err).toBeNull()
-    }))})
+    })
+})
